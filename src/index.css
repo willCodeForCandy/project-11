@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+:root {
+  font-family: 'Libre Baskerville', serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+
+  /* Color variables */
+  --color-light: #f7f7f7;
+  --color-dark: #242424;
+  --color-accent-1: #a3d3ff;
+  --color-accent-2: #ffe59e;
+  --color-accent-3: #ffcba8;
+  --color-accent-4: #ff80b9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* TODO: elegir colores para dark mode (o cambiar codigo y borrar esto) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

@@ -1,0 +1,55 @@
+#root {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'header header'
+    'sidebar main'
+    'sidebar footer';
+  gap: 1rem;
+  min-height: 100vh;
+  padding: 2rem;
+}
+#root > * {
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: inset 4px 5px 5px rgba(255, 255, 255, 0.5),
+    inset -3px -3px 3px rgba(15, 15, 15, 0.4);
+  position: relative;
+}
+
+main::before,
+header::before,
+aside::before,
+footer::before {
+  content: '';
+  position: absolute;
+  border-radius: 12px;
+  top: 13px;
+  left: 13px;
+  z-index: 1;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  border: 2px dashed var(--color-light);
+  box-shadow: inset -2px -2px 1px rgba(15, 15, 15, 0.1),
+    inset 2px 2px 1px rgba(15, 15, 15, 0.1);
+}
+
+header {
+  grid-area: header;
+  background-color: var(--color-accent-2);
+}
+main {
+  grid-area: main;
+  background-color: var(--color-accent-3);
+}
+
+aside {
+  grid-area: sidebar;
+  background-color: var(--color-accent-1);
+}
+
+footer {
+  grid-area: footer;
+  background-color: var(--color-accent-4);
+}
