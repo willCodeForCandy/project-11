@@ -5,7 +5,7 @@ import Weather from './pages/Weather/Weather';
 
 const App = () => {
   // const [coords, setCoords] = useState({});
-  const [weather, setWeather] = useState({});
+  const [weather, setWeather] = useState();
 
   const getLocalWeather = () => {
     if (navigator.geolocation) {
@@ -15,6 +15,7 @@ const App = () => {
             lat: position.coords.latitude,
             lon: position.coords.longitude,
           };
+          console.log('coords', coords);
           // setCoords(coords);
           fetchWeather(coords);
           // return coords;
@@ -30,6 +31,7 @@ const App = () => {
 
   const fetchWeather = async coords => {
     try {
+      console.log('coords2', coords);
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${
           coords.lat
@@ -38,6 +40,7 @@ const App = () => {
         }&units=metric&lang=es`
       );
       const response = await res.json();
+      console.log(response);
       setWeather(response);
       console.log(weather);
     } catch (error) {
@@ -53,11 +56,22 @@ const App = () => {
     <>
       <header className="stitched">Header</header>
       <main className="stitched">
-        <h2>{weather.name}</h2>
-        <p>{weather.weather[0].description}</p>
+        {weather && (
+          <>
+            <h2>{weather.name}</h2>
+            <p>{weather.weather[0].description}</p>
+          </>
+        )}
       </main>
       <aside className="stitched">Aside</aside>
-      <footer className="stitched">Footer</footer>
+      <footer className="stitched">
+        <a
+          href="https://www.flaticon.com/free-icons/weather"
+          title="weather icons"
+        >
+          Weather icons created by Freepik - Flaticon
+        </a>
+      </footer>
     </>
   );
 };
