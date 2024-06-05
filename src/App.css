@@ -10,7 +10,7 @@
   min-height: 100vh;
   padding: 2rem;
 }
-#root > * {
+.stitched {
   border-radius: 15px;
   padding: 2rem;
   box-shadow: inset 4px 5px 5px rgba(255, 255, 255, 0.5),
@@ -18,10 +18,7 @@
   position: relative;
 }
 
-main::before,
-header::before,
-aside::before,
-footer::before {
+.stitched::before {
   content: '';
   position: absolute;
   border-radius: 12px;
@@ -52,4 +49,22 @@ aside {
 footer {
   grid-area: footer;
   background-color: var(--color-accent-4);
+}
+
+@media (prefers-color-scheme: dark) {
+  .stitched {
+    background-color: var(--color-dark);
+  }
+  header.stitched::before {
+    border-color: var(--color-accent-2);
+  }
+  main.stitched::before {
+    border-color: var(--color-accent-3);
+  }
+  aside.stitched::before {
+    border-color: var(--color-accent-1);
+  }
+  footer.stitched::before {
+    border-color: var(--color-accent-4);
+  }
 }
