@@ -1,6 +1,6 @@
 #root {
   display: grid;
-  grid-template-columns: 12rem 1fr;
+  grid-template-columns: 250px 1fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
     'header header'
@@ -8,13 +8,13 @@
     'sidebar footer';
   gap: 1rem;
   min-height: 100vh;
-  padding: 2rem;
+  padding: 1rem;
 }
 .stitched {
   border-radius: 15px;
   padding: 2rem;
   box-shadow: inset 4px 5px 5px rgba(255, 255, 255, 0.5),
-    inset -3px -3px 3px rgba(15, 15, 15, 0.4);
+    inset -3px -3px 3px #7a545456;
   position: relative;
 }
 
@@ -28,22 +28,21 @@
   width: calc(100% - 30px);
   height: calc(100% - 30px);
   border: 2px dashed var(--color-light);
-  box-shadow: inset -2px -2px 1px rgba(15, 15, 15, 0.1),
-    inset 2px 2px 1px rgba(15, 15, 15, 0.1);
+  box-shadow: inset -2px -2px 1px #7a545425, inset 2px 2px 1px #7a545425;
 }
 
 header {
   grid-area: header;
-  background-color: var(--color-accent-2);
+  background-color: var(--color-accent-5);
 }
 main {
   grid-area: main;
-  background-color: var(--color-accent-3);
+  background-color: var(--color-accent-1);
 }
 
 aside {
   grid-area: sidebar;
-  background-color: var(--color-accent-1);
+  background-color: var(--color-accent-3);
 }
 
 footer {

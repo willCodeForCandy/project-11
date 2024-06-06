@@ -1,30 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chango&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 :root {
-  font-family: 'Libre Baskerville', serif;
-  /* line-height: 1.5; */
+  font-family: 'nunito', sans-serif;
+  line-height: 1.5;
+  font-weight: 600;
 
   color-scheme: light dark;
   color: var(--color-dark);
-  background-color: var(--color-light);
+  background-color: var(--color-accent-20);
 
   /* Color variables */
   --color-light: #f7f7f7;
-  --color-dark: #242424;
-  --color-accent-1: hsl(209, 100%, 90%);
-  --color-accent-2: hsl(44, 100%, 85%);
+  --color-dark: #7a5454;
+  --color-accent-1: #cce6ff;
+  --color-accent-20: #ffebb33a;
+  --color-accent-2: #ffebb3;
   --color-accent-3: hsl(24, 100%, 87%);
   --color-accent-4: hsl(333, 100%, 80%);
+  --color-accent-5: #cce0d2;
   --color-accent-dark-1: hsl(209, 90%, 20%);
   --color-accent-dark-2: hsl(44, 90%, 25%);
   --color-accent-dark-3: hsl(24, 90%, 18%);
   --color-accent-dark-4: hsl(333, 90%, 20%);
+
+  /* Spacings */
+  --spacing-xl: 50px;
+  --spacing-l: 30px;
+  --spacing-m: 20px;
+  --spacing-s: 10px;
+  --spacing-xs: 5px;
+
+  /* Border radius */
+  --border-radius-l: 15px;
+  --border-radius-s: 5px;
+
+  /*Font Sizes*/
+  --font-size-sm: 1rem;
+  --font-size-m: 1.2rem;
+  --font-size-l: 1.5rem;
+  --font-size-xl: 2.5rem;
+  --font-size-xxl: 4.5rem;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style: none;
+}
+
+p::first-letter {
+  text-transform: uppercase;
 }
 /* TODO: elegir colores para dark mode (o cambiar codigo y borrar esto) */
 @media (prefers-color-scheme: dark) {

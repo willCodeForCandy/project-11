@@ -1,64 +1,63 @@
-import sunny from '../../public/assets/002-sunny.png';
-import scatteredClouds from '../../public/assets/003-cloudy.png';
-import cloudy from '../../public/assets/004-cloudy-1.png';
-import sunnyDrizzle from '../../public/assets/010-rain.png';
-import heavyDrizzle from '../../public/assets/rain.png';
-import rain from '../../public/assets/006-rainy.png';
-import freezingRain from '../../public/assets/011-snow-1.png';
-import snow from '../../public/assets/005-snow.png';
-import storm from '../../public/assets/007-storm.png';
-import thunder from '../../public/assets/008-thunder.png';
-import clearNight from '../../public/assets/013-full-moon.png';
-import cloudyNight from '../../public/assets/022-moon.png';
-
 export const weatherIcons = [
   {
-    icon: sunny,
+    weatherCondition: 'sunny',
+    img: '/assets/002-sunny.png',
     codes: [800, '01d'],
   },
   {
-    icon: scatteredClouds,
+    weatherCondition: 'scattered clouds',
+    img: '/assets/003-cloudy.png',
     codes: [801, 802, '02d', '03d'],
   },
   {
-    icon: cloudy,
+    weatherCondition: 'cloudy',
+    img: '/assets/004-cloudy-1.png',
     codes: [803, 804, '04d', '04n'],
   },
   {
-    icon: sunnyDrizzle,
+    weatherCondition: 'sunny drizzle',
+    img: '/assets/010-rain.png',
     codes: [300, 301, 310, 321, 500, 521, '10d'],
   },
   {
-    icon: heavyDrizzle,
+    weatherCondition: 'heavy drizzle',
+    img: '/assets/rain.png',
     codes: [302, 311, 312, 313, 314, 502, 503, 504, 522, 531, '09d', '09n'],
   },
   {
-    icon: rain,
+    weatherCondition: 'rain',
+    img: '/assets/006-rainy.png',
     codes: [501],
   },
   {
-    icon: freezingRain,
+    weatherCondition: 'freezing rain',
+    img: '/assets/011-snow-1.png',
     codes: [511, 611, 612, 613, 615, 616],
   },
   {
-    icon: snow,
+    weatherCondition: 'snow',
+    img: '/assets/005-snow.png',
     codes: [600, 601, 602, 620, 621, 622],
   },
   {
-    icon: storm,
+    weatherCondition: 'storm',
+    img: '/assets/007-storm.png',
     codes: [200, 201, 202, 230, 231, 232],
   },
   {
-    icon: thunder,
+    weatherCondition: 'thunder',
+    img: '/assets/008-thunder.png',
     codes: [210, 211, 212, 221, '11d', '11n'],
   },
   {
-    icon: clearNight,
+    weatherCondition: 'clear night',
+    img: '/assets/013-full-moon.png',
     codes: [800, '01n'],
     nightTime: true,
   },
   {
-    icon: cloudyNight,
+    weatherCondition: 'cloudy night',
+    img: '/assets/022-moon.png',
     codes: [801, 802, '02n', '03n'],
     nightTime: true,
   },
