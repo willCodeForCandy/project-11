@@ -62,3 +62,9 @@ export const weatherIcons = [
     nightTime: true,
   },
 ];
+
+export const findWeatherIcon = currentWeather => {
+  return weatherIcons.find(iconObject =>
+    iconObject.codes.includes(currentWeather.weather[0].id)
+  );
+};

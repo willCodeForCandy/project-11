@@ -1,55 +1,6 @@
-#main-weather {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#main-weather h2 {
-  font-family: 'Chango';
-  font-size: var(--font-size-xl);
-  color: var(--color-light);
-  text-shadow: 2px 0px 7px #7a545487;
-}
-
-.main-weather {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 50px;
-  text-align: center;
-}
-
-.weather-icon > img {
-  width: 100%;
-  max-width: 200px;
-}
-
-.main-weather .temp {
-  /* font-family: 'Chango';
-  font-size: 2.5rem;*/
-  color: var(--color-light);
-  text-shadow: 2px 0px 7px #7a545487;
-  font-size: var(--font-size-xxl);
-  font-weight: 900;
-}
-
-.main-weather .description {
-  font-size: var(--font-size-m);
-}
-
 .additional-info > ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 20px;
 }
-
-/* .additional-info > ul {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-} */

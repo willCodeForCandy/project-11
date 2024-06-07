@@ -22,7 +22,7 @@ const App = () => {
           </ul>
         </nav>
       </header>
-      <main className="stitched">
+      <main>
         <Outlet />
       </main>
 
@@ -30,6 +30,7 @@ const App = () => {
         <a
           href="https://www.flaticon.com/free-icons/weather"
           title="weather icons"
+          target="_blank"
         >
           Weather icons created by Freepik - Flaticon
         </a>

@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import Weather from '../Weather/Weather';
 import './WeatherPage.css';
+import Aside from '../../components/Aside/Aside';
+import { useParams } from 'react-router-dom';
 
 const WeatherPage = () => {
-  // const [coords, setCoords] = useState({});
+  const params = useParams();
   const [weather, setWeather] = useState();
+  const [savedLocations, setSavedLocations] = useState([]);
 
   const getLocalWeather = () => {
     if (navigator.geolocation) {
@@ -14,9 +17,7 @@ const WeatherPage = () => {
             lat: position.coords.latitude,
             lon: position.coords.longitude,
           };
-          // setCoords(coords);
           fetchWeather(coords);
-          // return coords;
         },
         error => {
           console.error('Error getting user location:', error);
@@ -30,15 +31,19 @@ const WeatherPage = () => {
   const fetchWeather = async coords => {
     try {
       const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${
+        `${import.meta.env.VITE_BASE_URL}data/2.5/weather?lat=${
           coords.lat
         }&lon=${coords.lon}&appid=${
           import.meta.env.VITE_OPEN_WEATHER_API_KEY
         }&units=metric&lang=es`
       );
-      const response = await res.json();
-      console.log(response);
-      setWeather(response);
+      const weatherReport = await res.json();
+      console.log(weatherReport);
+      setSavedLocations(oldLocationsList => {
+        return [weatherReport, ...oldLocationsList];
+      });
+      console.log(savedLocations);
+      setWeather(weatherReport);
     } catch (error) {
       console.error(error);
     }
@@ -49,7 +54,7 @@ const WeatherPage = () => {
   }, []);
   return (
     <>
-      <aside className="stitched">Aside</aside>
+      <Aside onLocationSubmit={fetchWeather} listOfLocations={savedLocations} />
       {weather && <Weather weather={weather} />}
     </>
   );
