@@ -1,26 +1,12 @@
-#main-weather {
-  flex: 6 0 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  background-color: var(--color-accent-1);
-}
-
-#main-weather h2 {
-  font-family: 'Chango';
-  font-size: var(--font-size-xl);
-  color: var(--color-light);
-  text-shadow: 2px 0px 7px #7a545487;
-}
-
 .main-weather {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  gap: 50px;
-  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.main-weather > .description {
+  flex: 1;
 }
 
 .weather-icon > img {
@@ -29,14 +15,8 @@
 }
 
 .main-weather .temp {
-  /* font-family: 'Chango';
-    font-size: 2.5rem;*/
   color: var(--color-light);
   text-shadow: 2px 0px 7px #7a545487;
-  font-size: var(--font-size-xxl);
+  font-size: var(--font-size-xl);
   font-weight: 900;
-}
-
-.main-weather .description {
-  font-size: var(--font-size-m);
 }

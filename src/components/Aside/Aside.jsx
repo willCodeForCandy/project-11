@@ -1,5 +1,5 @@
+import { Link } from 'react-router-dom';
 import Location from '../Location/Location';
-import Locations from '../Locations/Locations';
 import SearchBar from '../SearchBar/SearchBar';
 import './Aside.css';
 
@@ -12,10 +12,12 @@ const Aside = ({ onLocationSubmit, listOfLocations }) => {
         <ul>
           {listOfLocations.length ? (
             listOfLocations.map(locationWeatherReport => (
-              <Location
-                locationWeather={locationWeatherReport}
-                key={locationWeatherReport.id}
-              />
+              <Link to={`/weather/${locationWeatherReport.id}`}>
+                <Location
+                  locationWeather={locationWeatherReport}
+                  key={locationWeatherReport.id}
+                />
+              </Link>
             ))
           ) : (
             <p>No hay ubicaciones guardadas</p>

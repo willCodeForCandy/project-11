@@ -32,6 +32,7 @@
 
   /* Border radius */
   --border-radius-l: 15px;
+  --border-radius-m: 10px;
   --border-radius-s: 5px;
 
   /*Font Sizes*/
@@ -52,6 +53,11 @@
 p::first-letter {
   text-transform: uppercase;
 }
+
+a {
+  text-decoration: none;
+}
+
 /* TODO: elegir colores para dark mode (o cambiar codigo y borrar esto) */
 @media (prefers-color-scheme: dark) {
   :root {

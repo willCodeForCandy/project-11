@@ -3,7 +3,7 @@ import './Location.css';
 
 const Location = ({ locationWeather }) => {
   return (
-    <li>
+    <li className="saved-location">
       <MainWeather weather={locationWeather} />
     </li>
   );

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import searchIcon from '/assets/search.png';
 import './SearchBar.css';
 
 const SearchBar = ({ fetchWeather }) => {
@@ -42,14 +43,16 @@ const SearchBar = ({ fetchWeather }) => {
       <input
         id="q"
         aria-label="Buscar por ciudad"
-        placeholder="Buscar"
+        placeholder="Buscar por ciudad"
         type="search"
         name="q"
         value={userInput}
         onChange={e => handleChange(e)}
       />
 
-      <button type="submit">🔍</button>
+      <button type="submit">
+        <img src={searchIcon} alt="Lupa" />
+      </button>
     </form>
   );
 };
