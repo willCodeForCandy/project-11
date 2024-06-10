@@ -4,7 +4,6 @@ import './SearchBar.css';
 
 const SearchBar = ({ fetchWeather }) => {
   const [userInput, setUserInput] = useState('');
-  const [locationList, setLocationList] = useState([]);
 
   const handleChange = e => {
     setUserInput(e.target.value);
@@ -21,7 +20,6 @@ const SearchBar = ({ fetchWeather }) => {
         lat: response[0].lat,
         lon: response[0].lon,
       };
-      console.log(response);
       return coords;
     } catch (error) {
       console.error(error);

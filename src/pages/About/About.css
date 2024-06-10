@@ -1,0 +1,17 @@
+section#about {
+  flex: 1;
+  padding: var(--spacing-m);
+}
+
+#about h2 {
+  margin-bottom: var(--spacing-m);
+}
+
+#about a {
+  color: var(--color-accent-dark-1);
+  transition: all 0.3s;
+}
+
+#about a:hover {
+  font-weight: 800;
+}

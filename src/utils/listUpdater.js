@@ -1,11 +1,11 @@
 export const updateWithoutDuplicates = (newItem, oldList) => {
   const repeatedLocation = oldList.find(listItem => listItem.id === newItem.id);
-  const updatedList = [];
-  if (!repeatedLocation) {
-    updatedList = [newItem, ...oldList];
-    console.log(newItem, oldList, updatedList);
+
+  if (repeatedLocation) {
+    return oldList.map(listItem =>
+      listItem.id === newItem.id ? newItem : listItem
+    );
   } else {
-    updatedList = oldList;
+    return [newItem, ...oldList];
   }
-  return updatedList;
 };

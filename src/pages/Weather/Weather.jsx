@@ -2,15 +2,12 @@ import { useParams } from 'react-router-dom';
 import MainWeather from '../../components/MainWeather/MainWeather';
 import './Weather.css';
 
-const Weather = ({ list, id }) => {
+const Weather = ({ list }) => {
   const params = useParams();
-  console.log(params, list);
+
   const locationId = params.id || list[0].id;
-  const weather = list.find(location => {
-    console.log(location.id, location.id === locationId);
-    return location.id == locationId;
-  });
-  console.log(locationId, weather);
+  const weather = list.find(location => location.id == locationId);
+
   return (
     <>
       {' '}

@@ -4,7 +4,6 @@ import SearchBar from '../SearchBar/SearchBar';
 import './Aside.css';
 
 const Aside = ({ onLocationSubmit, listOfLocations }) => {
-  console.log(listOfLocations);
   return (
     <aside className="stitched">
       <SearchBar fetchWeather={onLocationSubmit} />
@@ -12,11 +11,11 @@ const Aside = ({ onLocationSubmit, listOfLocations }) => {
         <ul>
           {listOfLocations.length ? (
             listOfLocations.map(locationWeatherReport => (
-              <Link to={`/weather/${locationWeatherReport.id}`}>
-                <Location
-                  locationWeather={locationWeatherReport}
-                  key={locationWeatherReport.id}
-                />
+              <Link
+                to={`/weather/${locationWeatherReport.id}`}
+                key={locationWeatherReport.id}
+              >
+                <Location locationWeather={locationWeatherReport} />
               </Link>
             ))
           ) : (

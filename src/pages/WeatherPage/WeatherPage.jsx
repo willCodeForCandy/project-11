@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react';
 import Weather from '../Weather/Weather';
 import './WeatherPage.css';
 import Aside from '../../components/Aside/Aside';
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { updateWithoutDuplicates } from '../../utils/listUpdater';
 
 const WeatherPage = () => {
-  const [weather, setWeather] = useState();
   const [savedLocations, setSavedLocations] = useState(
     JSON.parse(localStorage.getItem('savedLocations')) ?? []
   );
@@ -26,7 +25,7 @@ const WeatherPage = () => {
         }
       );
     } else {
-      console.log('Geolocation is not supported by this browser.');
+      alert('Geolocation is not supported by this browser.');
     }
   };
 
@@ -40,15 +39,15 @@ const WeatherPage = () => {
         }&units=metric&lang=es`
       );
       const weatherReport = await res.json();
-      if (!savedLocations.find(location => location.id === weatherReport.id)) {
-        let updatedLocations = [weatherReport, ...savedLocations];
-        localStorage.setItem(
-          'savedLocations',
-          JSON.stringify(updatedLocations)
-        );
-        setSavedLocations(updatedLocations);
-      }
-      setWeather(weatherReport);
+      const updatedLocations = updateWithoutDuplicates(
+        weatherReport,
+        savedLocations
+      );
+
+      localStorage.setItem('savedLocations', JSON.stringify(updatedLocations));
+      setSavedLocations(updatedLocations);
+
+      // setWeather(weatherReport);
     } catch (error) {
       console.error(error);
     }
@@ -99,8 +98,7 @@ const WeatherPage = () => {
     <>
       <Aside onLocationSubmit={fetchWeather} listOfLocations={savedLocations} />
       <section id="main-weather" className="stitched">
-        {/* <Outlet /> */}
-        {weather && <Weather weather={weather} list={savedLocations} />}
+        {savedLocations.length && <Weather list={savedLocations} />}
       </section>
     </>
   );

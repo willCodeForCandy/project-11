@@ -4,7 +4,7 @@ import App from './App.jsx';
 import './index.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NotFound from './pages/NotFound.jsx';
-import About from './pages/About.jsx';
+import About from './pages/About/About.jsx';
 import WeatherPage from './pages/WeatherPage/WeatherPage.jsx';
 import Weather from './pages/Weather/Weather.jsx';
 

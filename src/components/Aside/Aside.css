@@ -12,3 +12,29 @@ aside ul {
   flex-direction: column;
   gap: var(--spacing-m);
 }
+
+aside nav ul {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 70svh;
+}
+
+/* width */
+aside nav ul::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+aside nav ul::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+aside nav ul::-webkit-scrollbar-thumb {
+  background: #999;
+}
+
+/* Handle on hover */
+aside nav ul::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
