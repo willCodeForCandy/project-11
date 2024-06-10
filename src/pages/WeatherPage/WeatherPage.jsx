@@ -97,9 +97,7 @@ const WeatherPage = () => {
   return (
     <>
       <Aside onLocationSubmit={fetchWeather} listOfLocations={savedLocations} />
-      <section id="main-weather" className="stitched">
-        {savedLocations.length && <Weather list={savedLocations} />}
-      </section>
+      {savedLocations.length && <Weather list={savedLocations} />}
     </>
   );
 };

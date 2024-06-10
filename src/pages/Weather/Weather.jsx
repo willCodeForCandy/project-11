@@ -4,13 +4,18 @@ import './Weather.css';
 
 const Weather = ({ list }) => {
   const params = useParams();
-
+  console.log(list);
   const locationId = params.id || list[0].id;
   const weather = list.find(location => location.id == locationId);
 
   return (
-    <>
-      {' '}
+    <section
+      id="main-weather"
+      className="stitched"
+      style={{
+        backgroundColor: weather.clouds.all > 50 && 'var(--color-cloudy-day)',
+      }}
+    >
       <MainWeather weather={weather} />
       <div className="additional-info">
         <ul>
@@ -28,7 +33,7 @@ const Weather = ({ list }) => {
           </li>
         </ul>
       </div>
-    </>
+    </section>
   );
 };
 
