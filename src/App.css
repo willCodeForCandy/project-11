@@ -27,14 +27,6 @@
   box-shadow: inset -2px -2px 1px #7a545425, inset 2px 2px 1px #7a545425;
 }
 
-header {
-  background-color: var(--color-accent-5);
-}
-header ul {
-  display: flex;
-  gap: var(--spacing-l);
-  justify-content: end;
-}
 main {
   flex-grow: 1;
   display: flex;

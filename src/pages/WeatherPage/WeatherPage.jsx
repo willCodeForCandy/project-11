@@ -4,6 +4,7 @@ import './WeatherPage.css';
 import Aside from '../../components/Aside/Aside';
 import { Outlet } from 'react-router-dom';
 import { updateWithoutDuplicates } from '../../utils/listUpdater';
+import loader from '/assets/loading.gif';
 
 const WeatherPage = () => {
   const [savedLocations, setSavedLocations] = useState(
@@ -46,8 +47,6 @@ const WeatherPage = () => {
 
       localStorage.setItem('savedLocations', JSON.stringify(updatedLocations));
       setSavedLocations(updatedLocations);
-
-      // setWeather(weatherReport);
     } catch (error) {
       console.error(error);
     }
@@ -97,7 +96,13 @@ const WeatherPage = () => {
   return (
     <>
       <Aside onLocationSubmit={fetchWeather} listOfLocations={savedLocations} />
-      {savedLocations.length && <Weather list={savedLocations} />}
+      {savedLocations.length ? (
+        <Weather list={savedLocations} />
+      ) : (
+        <div className="loader">
+          <img src={loader} alt="Nubecita feliz con lluvia" />
+        </div>
+      )}
     </>
   );
 };

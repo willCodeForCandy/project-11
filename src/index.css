@@ -62,7 +62,15 @@ p::first-letter {
 
 a {
   text-decoration: none;
-  color: var(--color-dark);
+  color: inherit;
+  transition: all 0.3s;
+}
+
+.chubby-title {
+  font-family: 'Chango';
+  font-size: var(--font-size-xl);
+  color: var(--color-light);
+  text-shadow: 2px 0px 7px #7a545487;
 }
 
 /* TODO: elegir colores para dark mode (o cambiar codigo y borrar esto) */

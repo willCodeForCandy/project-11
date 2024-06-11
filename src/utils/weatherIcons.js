@@ -68,3 +68,6 @@ export const findWeatherIcon = currentWeather => {
     iconObject.codes.includes(currentWeather.weather[0].id)
   );
 };
+
+export const getRandomIcon = () =>
+  weatherIcons[Math.floor(Math.random() * weatherIcons.length)].img;

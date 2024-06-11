@@ -1,0 +1,19 @@
+header {
+  background-color: var(--color-accent-5);
+}
+header ul {
+  display: flex;
+  justify-content: end;
+  gap: var(--spacing-xs);
+}
+
+header a:hover,
+header a.active {
+  background-color: rgba(38, 88, 40, 0.3);
+  color: var(--color-light);
+}
+
+header a {
+  padding: var(--spacing-xs) var(--spacing-m);
+  border-radius: 30px;
+}

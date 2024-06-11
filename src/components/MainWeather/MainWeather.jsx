@@ -5,7 +5,7 @@ const MainWeather = ({ weather }) => {
   const currentWeatherIcon = findWeatherIcon(weather);
   return (
     <>
-      <h2>
+      <h2 className="chubby-title">
         {weather.name}, {weather.sys.country}
       </h2>
       <div className="main-weather">

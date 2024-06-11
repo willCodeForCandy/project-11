@@ -7,13 +7,6 @@
   background-color: var(--color-accent-1);
 }
 
-#main-weather h2 {
-  font-family: 'Chango';
-  font-size: var(--font-size-xl);
-  color: var(--color-light);
-  text-shadow: 2px 0px 7px #7a545487;
-}
-
 #main-weather .main-weather .temp {
   font-size: var(--font-size-xxl);
 }

@@ -1,6 +1,6 @@
 section#about {
   flex: 1;
-  padding: var(--spacing-m);
+  background-color: var(--color-accent-2);
 }
 
 #about h2 {
