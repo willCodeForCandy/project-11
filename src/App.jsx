@@ -3,6 +3,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Weather from './pages/Weather/Weather';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
@@ -12,15 +13,7 @@ const App = () => {
         <Outlet />
       </main>
 
-      <footer className="stitched">
-        <a
-          href="https://www.flaticon.com/free-icons/weather"
-          title="weather icons"
-          target="_blank"
-        >
-          Weather icons created by Freepik - Flaticon
-        </a>
-      </footer>
+      <Footer />
     </>
   );
 };

@@ -15,3 +15,9 @@ section#about {
 #about a:hover {
   font-weight: 800;
 }
+
+@media screen and (max-width: 520px) {
+  #about .chubby-title {
+    font-size: var(--font-size-l);
+  }
+}

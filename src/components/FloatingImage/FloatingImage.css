@@ -1,6 +1,5 @@
 .floater {
   width: 150px;
-  height: 150px;
   filter: drop-shadow(5px 15px 10px rgba(0, 0, 0, 0.6));
   transform: translatey(0px);
   animation: float 6s ease-in-out infinite;
@@ -21,5 +20,12 @@
   100% {
     filter: drop-shadow(5px 15px 10px rgba(0, 0, 0, 0.6));
     transform: translatey(0px);
+  }
+}
+
+@media screen and (max-height: 780px) {
+  .floater {
+    width: 100px;
+    bottom: var(--spacing-m);
   }
 }

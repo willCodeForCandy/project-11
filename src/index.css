@@ -17,12 +17,13 @@
   --color-accent-2: #ffebb3;
   --color-accent-3: hsl(24, 100%, 87%);
   --color-accent-4: hsl(333, 100%, 80%);
-  --color-accent-5: #cce0d2;
+  --color-accent-5: hsl(138, 24%, 84%);
   --color-cloudy-day: #dddddd;
-  --color-accent-dark-1: hsl(209, 90%, 20%);
-  --color-accent-dark-2: hsl(44, 90%, 25%);
-  --color-accent-dark-3: hsl(24, 90%, 18%);
-  --color-accent-dark-4: hsl(333, 90%, 20%);
+  --color-cloudy-night: #3a3a3a;
+  /* --color-accent-dark-1: hsl(209, 38%, 24%);
+  --color-accent-dark-2: hsl(44, 38%, 25%);
+  --color-accent-dark-3: hsl(24, 46%, 30%);
+  --color-accent-dark-4: hsl(333, 19%, 39%); */
 
   /* Spacings */
   --spacing-xl: 50px;
@@ -54,8 +55,11 @@
 body {
   height: 100svh;
   width: 100vw;
+  overflow: hidden;
   @media screen and (max-width: 750px) {
+    min-height: 100svh;
     height: auto;
+    overflow: auto;
   }
 }
 
@@ -79,11 +83,16 @@ a {
   }
 }
 
-/* TODO: elegir colores para dark mode (o cambiar codigo y borrar esto) */
 @media (prefers-color-scheme: dark) {
   :root {
     background-color: var(--color-accent-dark-1);
     color: var(--color-light);
+    --color-accent-1: hsl(209, 38%, 24%);
+    --color-accent-2: hsl(44, 38%, 25%);
+    --color-accent-3: hsl(34, 31%, 35%);
+    --color-accent-4: hsl(333, 19%, 39%);
+    --color-accent-5: hsl(138, 24%, 30%);
+    --color-cloudy-day: var(--color-cloudy-night);
   }
   a:hover {
     color: #747bff;

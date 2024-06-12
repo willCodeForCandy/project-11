@@ -1,0 +1,36 @@
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer > * {
+  width: 100%;
+}
+
+footer p {
+  color: var(--color-light);
+}
+
+footer menu {
+  height: 40px;
+  display: flex;
+  justify-content: end;
+  gap: var(--spacing-m);
+}
+
+footer a {
+  height: 0px;
+  display: inline-block;
+}
+
+footer img {
+  filter: invert(1);
+  height: 40px;
+  transition: all 0.5s;
+}
+footer img:hover {
+  filter: invert(1) drop-shadow(0px 0px 3px var(--color-dark));
+  transform: rotate(20deg);
+}

@@ -19,23 +19,20 @@ aside nav ul {
   max-height: 70svh;
 }
 
-/* width */
+/* Scrollbar styles */
 aside nav ul::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
 
-/* Track */
 aside nav ul::-webkit-scrollbar-track {
   background: #0001;
 }
 
-/* Handle */
 aside nav ul::-webkit-scrollbar-thumb {
   background: #999;
 }
 
-/* Handle on hover */
 aside nav ul::-webkit-scrollbar-thumb:hover {
   background: #888;
 }
