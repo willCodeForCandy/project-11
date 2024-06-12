@@ -22,11 +22,12 @@ aside nav ul {
 /* width */
 aside nav ul::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 /* Track */
 aside nav ul::-webkit-scrollbar-track {
-  background: transparent;
+  background: #0001;
 }
 
 /* Handle */
@@ -37,4 +38,15 @@ aside nav ul::-webkit-scrollbar-thumb {
 /* Handle on hover */
 aside nav ul::-webkit-scrollbar-thumb:hover {
   background: #888;
+}
+
+@media screen and (max-width: 750px) {
+  aside {
+    flex: 0;
+  }
+  aside nav ul {
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
 }

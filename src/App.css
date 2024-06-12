@@ -26,14 +26,10 @@
   border: 2px dashed var(--color-light);
   box-shadow: inset -2px -2px 1px #7a545425, inset 2px 2px 1px #7a545425;
 }
-
 main {
-  flex-grow: 1;
+  flex: 1;
   display: flex;
-  gap: var(--spacing-m);
-  align-items: stretch;
 }
-
 footer {
   background-color: var(--color-accent-4);
 }

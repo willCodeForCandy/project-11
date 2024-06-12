@@ -53,7 +53,10 @@
 
 body {
   height: 100svh;
-  overflow: hidden;
+  width: 100vw;
+  @media screen and (max-width: 750px) {
+    height: auto;
+  }
 }
 
 p::first-letter {
@@ -71,6 +74,9 @@ a {
   font-size: var(--font-size-xl);
   color: var(--color-light);
   text-shadow: 2px 0px 7px #7a545487;
+  @container (max-width: 420px) {
+    font-size: var(--font-size-l);
+  }
 }
 
 /* TODO: elegir colores para dark mode (o cambiar codigo y borrar esto) */

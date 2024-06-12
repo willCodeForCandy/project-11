@@ -7,10 +7,10 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <NavLink to="/weather">El clima</NavLink>
+            <NavLink to="/weather">Clima</NavLink>
           </li>
           <li>
-            <NavLink to="/about">Acerca de</NavLink>
+            <NavLink to="/about">Info</NavLink>
           </li>
           <li>
             <NavLink to="/help">Ayuda</NavLink>

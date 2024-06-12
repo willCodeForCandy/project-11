@@ -4,6 +4,11 @@
   align-items: center;
   padding: var(--spacing-xl);
 }
+#main-weather .main-weather {
+  @container (max-width: 420px) {
+    flex-direction: column;
+  }
+}
 
 .main-weather > .description {
   flex: 1;

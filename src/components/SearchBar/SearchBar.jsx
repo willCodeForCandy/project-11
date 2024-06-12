@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import searchIcon from '/assets/search.png';
 import './SearchBar.css';
+import { apiRequest } from '../../utils/apiRequest';
 
 const SearchBar = ({ fetchWeather }) => {
   const [userInput, setUserInput] = useState('');
@@ -10,15 +11,17 @@ const SearchBar = ({ fetchWeather }) => {
   };
   const getCoords = async cityName => {
     try {
-      const res = await fetch(
-        `${import.meta.env.VITE_BASE_URL}geo/1.0/direct?q=${cityName}&appid=${
-          import.meta.env.VITE_OPEN_WEATHER_API_KEY
-        }&units=metric&lang=es`
-      );
-      const response = await res.json();
+      const cityLocation = await apiRequest({
+        geolocation: true,
+        cityName,
+      });
+      if (typeof cityLocation === 'string') {
+        const errorMessage = cityLocation;
+        return errorMessage; //TODO Arreglar esta inmundicia
+      }
       const coords = {
-        lat: response[0].lat,
-        lon: response[0].lon,
+        lat: cityLocation[0].lat,
+        lon: cityLocation[0].lon,
       };
       return coords;
     } catch (error) {

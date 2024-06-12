@@ -9,6 +9,10 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   margin: 0px 5px;
+  min-width: 220px;
+  @media screen and (max-width: 750px) {
+    width: 250px;
+  }
 }
 .saved-location .main-weather {
   padding: 0;

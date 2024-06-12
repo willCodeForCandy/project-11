@@ -19,7 +19,11 @@ const Aside = ({ onLocationSubmit, listOfLocations }) => {
               </Link>
             ))
           ) : (
-            <p>No hay ubicaciones guardadas</p>
+            <p>
+              No hay ubicaciones guardadas. Puedes activar la geolocalización
+              para obtener los datos de tu ubicación actual, o buscar la
+              información de cualquier ciudad.
+            </p>
           )}
         </ul>
       </nav>
