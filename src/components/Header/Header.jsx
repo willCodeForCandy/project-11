@@ -1,9 +1,14 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import logo from '/assets/logo.png';
 import './Header.css';
 
 const Header = () => {
   return (
     <header className="stitched">
+      <Link to="/" className="logo-wrapper">
+        <img src={logo} alt="Una gotita de agua muy cuqui" id="logo" />
+      </Link>
+
       <nav>
         <ul>
           <li>
@@ -11,9 +16,6 @@ const Header = () => {
           </li>
           <li>
             <NavLink to="/about">Info</NavLink>
-          </li>
-          <li>
-            <NavLink to="/help">Ayuda</NavLink>
           </li>
         </ul>
       </nav>

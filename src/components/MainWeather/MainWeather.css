@@ -25,3 +25,14 @@
   font-size: var(--font-size-xl);
   font-weight: 900;
 }
+
+.current-location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--spacing-s);
+}
+
+.current-location > img {
+  height: 30px;
+}

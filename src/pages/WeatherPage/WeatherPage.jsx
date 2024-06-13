@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Weather from '../Weather/Weather';
 import './WeatherPage.css';
 import Aside from '../../components/Aside/Aside';
-import { Outlet } from 'react-router-dom';
 import { updateWithoutDuplicates } from '../../utils/listUpdater';
 import loader from '/assets/loading.gif';
 import { apiRequest } from '../../utils/apiRequest';
@@ -20,7 +19,20 @@ const WeatherPage = () => {
             lat: position.coords.latitude,
             lon: position.coords.longitude,
           };
-          getWeather(coords);
+          getWeather(coords).then(weatherReport => {
+            setSavedLocations(prevLocations => {
+              const updatedLocations = prevLocations.map(location =>
+                location.id === weatherReport.id
+                  ? { ...location, local: true }
+                  : { ...location, local: false }
+              );
+              localStorage.setItem(
+                'savedLocations',
+                JSON.stringify(updatedLocations)
+              );
+              return updatedLocations;
+            });
+          });
         },
         error => {
           console.error('Error getting user location:', error);
@@ -38,9 +50,10 @@ const WeatherPage = () => {
         weatherReport,
         savedLocations
       );
-
-      localStorage.setItem('savedLocations', JSON.stringify(updatedLocations));
       setSavedLocations(updatedLocations);
+      localStorage.setItem('savedLocations', JSON.stringify(updatedLocations));
+
+      return weatherReport;
     } catch (error) {
       console.error(error);
     }
