@@ -6,7 +6,8 @@ import './Aside.css';
 const Aside = ({ onLocationSubmit, listOfLocations }) => {
   return (
     <aside className="stitched">
-      <SearchBar fetchWeather={onLocationSubmit} />
+      <SearchBar getAndUpdateWeather={onLocationSubmit} />
+      {/* Paso la funcion para solicitar y guardar la ubicacion. //! Actualiza la lista y el estado individual */}
       <nav>
         <ul>
           {listOfLocations.length ? (
@@ -15,7 +16,11 @@ const Aside = ({ onLocationSubmit, listOfLocations }) => {
                 to={`/weather/${locationWeatherReport.id}`}
                 key={locationWeatherReport.id}
               >
-                <Location locationWeather={locationWeatherReport} />
+                <Location
+                  locationWeather={locationWeatherReport}
+                  // handleClick={updateWeather}
+                />
+                {/* Cuando hago click, modifico el estado de la ubicación a mostrar? */}
               </Link>
             ))
           ) : (

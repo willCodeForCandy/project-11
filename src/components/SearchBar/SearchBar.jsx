@@ -3,27 +3,26 @@ import searchIcon from '/assets/search.png';
 import './SearchBar.css';
 import { apiRequest } from '../../utils/apiRequest';
 
-const SearchBar = ({ fetchWeather }) => {
+//! Necesito getCoords, getWeather, y storeWeather
+const SearchBar = ({ getAndUpdateWeather }) => {
   const [userInput, setUserInput] = useState('');
 
   const handleChange = e => {
     setUserInput(e.target.value);
   };
+  /* Función para obtener las coordenadas a partir del nombre de la ciudad */
   const getCoords = async cityName => {
     try {
       const cityLocation = await apiRequest({
         geolocation: true,
         cityName,
       });
-      if (typeof cityLocation === 'string') {
-        const errorMessage = cityLocation;
-        return errorMessage; //TODO Arreglar esta inmundicia
+      if (typeof cityLocation !== 'string') {
+        return {
+          lat: cityLocation[0].lat,
+          lon: cityLocation[0].lon,
+        };
       }
-      const coords = {
-        lat: cityLocation[0].lat,
-        lon: cityLocation[0].lon,
-      };
-      return coords;
     } catch (error) {
       console.error(error);
     }
@@ -32,7 +31,7 @@ const SearchBar = ({ fetchWeather }) => {
   const handleSubmit = async (e, cityName) => {
     e.preventDefault();
     const coords = await getCoords(cityName);
-    fetchWeather(coords);
+    getAndUpdateWeather(coords); //actualiza la lista y el estado individual
   };
 
   return (

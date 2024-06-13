@@ -1,12 +1,13 @@
 import { useParams } from 'react-router-dom';
-import MainWeather from '../../components/MainWeather/MainWeather';
+import MainWeatherInfo from '../MainWeatherInfo/MainWeatherInfo';
 import './Weather.css';
 
-const Weather = ({ list }) => {
+const Weather = ({ list, updateWeather }) => {
   const params = useParams();
   console.log(list);
   const locationId = params.id || list[0].id;
   const weather = list.find(location => location.id == locationId);
+  updateWeather(weather);
 
   return (
     <section
@@ -16,7 +17,7 @@ const Weather = ({ list }) => {
         backgroundColor: weather.clouds.all > 50 && 'var(--color-cloudy-day)',
       }}
     >
-      <MainWeather weather={weather} />
+      <MainWeatherInfo weather={weather} />
       <div className="additional-info">
         <ul>
           <li>

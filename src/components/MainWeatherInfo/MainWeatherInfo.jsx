@@ -1,7 +1,7 @@
 import { findWeatherIcon } from '../../utils/weatherIcons';
-import './MainWeather.css';
+import './MainWeatherInfo.css';
 
-const MainWeather = ({ weather }) => {
+const MainWeatherInfo = ({ weather }) => {
   const currentWeatherIcon = findWeatherIcon(weather);
   return (
     <>
@@ -24,4 +24,4 @@ const MainWeather = ({ weather }) => {
   );
 };
 
-export default MainWeather;
+export default MainWeatherInfo;

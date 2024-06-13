@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
-import Weather from '../Weather/Weather';
+import Weather from '../../components/Weather/Weather';
 import './WeatherPage.css';
 import Aside from '../../components/Aside/Aside';
-import { Outlet } from 'react-router-dom';
 import { updateWithoutDuplicates } from '../../utils/listUpdater';
 import loader from '/assets/loading.gif';
 import { apiRequest } from '../../utils/apiRequest';
+import { Route } from 'react-router-dom';
 
 const WeatherPage = () => {
   const [savedLocations, setSavedLocations] = useState(
     JSON.parse(localStorage.getItem('savedLocations')) ?? []
   );
+  const [weather, setWeather] = useState();
 
   const getLocalWeather = () => {
     if (navigator.geolocation) {
@@ -20,7 +21,7 @@ const WeatherPage = () => {
             lat: position.coords.latitude,
             lon: position.coords.longitude,
           };
-          getWeather(coords);
+          updateWeather(coords);
         },
         error => {
           console.error('Error getting user location:', error);
@@ -29,9 +30,9 @@ const WeatherPage = () => {
     } else {
       alert('Geolocation is not supported by this browser.');
     }
-  };
+  }; //TODO: agregar propiedad local
 
-  const getWeather = async coords => {
+  const updateWeather = async coords => {
     try {
       const weatherReport = await apiRequest({ coords });
       const updatedLocations = updateWithoutDuplicates(
@@ -41,6 +42,7 @@ const WeatherPage = () => {
 
       localStorage.setItem('savedLocations', JSON.stringify(updatedLocations));
       setSavedLocations(updatedLocations);
+      setWeather(weatherReport);
     } catch (error) {
       console.error(error);
     }
@@ -52,14 +54,20 @@ const WeatherPage = () => {
 
   return (
     <div id="weather">
-      <Aside onLocationSubmit={getWeather} listOfLocations={savedLocations} />
-      {savedLocations.length ? (
-        <Weather list={savedLocations} />
+      <Aside
+        onLocationSubmit={updateWeather}
+        listOfLocations={savedLocations}
+      />
+      <Route path="/weather/:id" element={<Weather />} />
+
+      {/* {savedLocations.length ? (
+        <Weather list={savedLocations} updateWeather={setWeather} />
       ) : (
         <div className="loader">
           <img src={loader} alt="Nubecita feliz con lluvia" />
         </div>
-      )}
+      )} */}
+      {console.log(weather)}
     </div>
   );
 };

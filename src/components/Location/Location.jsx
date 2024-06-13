@@ -1,6 +1,7 @@
-import MainWeather from '../MainWeather/MainWeather';
+import MainWeatherInfo from '../MainWeatherInfo/MainWeatherInfo';
 import './Location.css';
 
+// obtengo la info de la lista //!el state weather NO ESTA INVOLUCRADO
 const Location = ({ locationWeather }) => {
   return (
     <li
@@ -12,7 +13,7 @@ const Location = ({ locationWeather }) => {
           locationWeather.clouds.all > 50 && 'var(--color-cloudy-day)',
       }}
     >
-      <MainWeather weather={locationWeather} />
+      <MainWeatherInfo weather={locationWeather} />
     </li>
   );
 };
