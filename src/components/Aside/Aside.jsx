@@ -3,10 +3,10 @@ import Location from '../Location/Location';
 import SearchBar from '../SearchBar/SearchBar';
 import './Aside.css';
 
-const Aside = ({ onLocationSubmit, listOfLocations }) => {
+const Aside = ({ getWeather, listOfLocations }) => {
   return (
     <aside className="stitched">
-      <SearchBar fetchWeather={onLocationSubmit} />
+      <SearchBar getWeather={getWeather} />
       <nav>
         <ul>
           {listOfLocations.length ? (
