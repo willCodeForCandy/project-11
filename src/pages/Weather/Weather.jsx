@@ -5,12 +5,13 @@ import './Weather.css';
 const Weather = ({ list }) => {
   const params = useParams();
   const localWeather = list.find(location => location.local);
-  const locationId = params.id || localWeather.id;
+  const defaultWeatherId = localWeather ? localWeather.id : list[0].id;
+  const locationId = params.id || defaultWeatherId;
   const weather = list.find(location => location.id == locationId); // uso == porque params son strings
 
   return (
     <>
-      {localWeather && (
+      {weather && (
         <section
           id="main-weather"
           className="stitched"
