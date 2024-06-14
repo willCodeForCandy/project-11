@@ -61,12 +61,25 @@ export const weatherIcons = [
     codes: [801, 802, '02n', '03n'],
     nightTime: true,
   },
+  {
+    weatherCondition: 'fog',
+    img: '/assets/021-fog.png',
+    codes: [701, 711, 721, 731, 741, 751, 761, 762, '50d', '50n'],
+    nightTime: true,
+  },
+  {
+    weatherCondition: 'unknown',
+    img: '/assets/unknown.png',
+    codes: [],
+  },
 ];
 
 export const findWeatherIcon = currentWeather => {
-  return weatherIcons.find(iconObject =>
-    iconObject.codes.includes(currentWeather.weather[0].id)
-  );
+  const currentWeatherIcon =
+    weatherIcons.find(iconObject =>
+      iconObject.codes.includes(currentWeather.weather[0].id)
+    ) || weatherIcons.at(-1);
+  return currentWeatherIcon;
 };
 
 export const getRandomIcon = () =>
