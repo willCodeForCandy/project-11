@@ -46,14 +46,18 @@ const WeatherPage = () => {
   const getWeather = async coords => {
     try {
       const weatherReport = await apiRequest({ coords });
-      const updatedLocations = updateWithoutDuplicates(
-        weatherReport,
-        savedLocations
-      );
-      setSavedLocations(updatedLocations);
-      localStorage.setItem('savedLocations', JSON.stringify(updatedLocations));
-
-      return weatherReport;
+      if (weatherReport) {
+        const updatedLocations = updateWithoutDuplicates(
+          weatherReport,
+          savedLocations
+        );
+        setSavedLocations(updatedLocations);
+        localStorage.setItem(
+          'savedLocations',
+          JSON.stringify(updatedLocations)
+        );
+        return weatherReport;
+      }
     } catch (error) {
       console.error(error);
     }
@@ -65,7 +69,7 @@ const WeatherPage = () => {
 
   return (
     <div id="weather">
-      <Aside onLocationSubmit={getWeather} listOfLocations={savedLocations} />
+      <Aside getWeather={getWeather} listOfLocations={savedLocations} />
       {savedLocations.length ? (
         <Weather list={savedLocations} />
       ) : (

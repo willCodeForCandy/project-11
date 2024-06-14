@@ -4,37 +4,41 @@ import './Weather.css';
 
 const Weather = ({ list }) => {
   const params = useParams();
-  console.log(list);
   const localWeather = list.find(location => location.local);
   const locationId = params.id || localWeather.id;
-  const weather = list.find(location => location.id == locationId);
+  const weather = list.find(location => location.id == locationId); // uso == porque params son strings
 
   return (
-    <section
-      id="main-weather"
-      className="stitched"
-      style={{
-        backgroundColor: weather.clouds.all > 50 && 'var(--color-cloudy-day)',
-      }}
-    >
-      <MainWeather weather={weather} />
-      <div className="additional-info">
-        <ul>
-          <li>
-            <b>Viento:</b> {weather.wind.speed} m/s
-          </li>
-          <li>
-            <b>Presión:</b> {weather.main.pressure} hPa
-          </li>
-          <li>
-            <b>Humedad:</b> {weather.main.humidity} %
-          </li>
-          <li>
-            <b>Nubosidad:</b> {weather.clouds.all} %
-          </li>
-        </ul>
-      </div>
-    </section>
+    <>
+      {localWeather && (
+        <section
+          id="main-weather"
+          className="stitched"
+          style={{
+            backgroundColor:
+              weather.clouds.all > 50 && 'var(--color-cloudy-day)',
+          }}
+        >
+          <MainWeather weather={weather} />
+          <div className="additional-info">
+            <ul>
+              <li>
+                <b>Viento:</b> {weather.wind.speed} m/s
+              </li>
+              <li>
+                <b>Presión:</b> {weather.main.pressure} hPa
+              </li>
+              <li>
+                <b>Humedad:</b> {weather.main.humidity} %
+              </li>
+              <li>
+                <b>Nubosidad:</b> {weather.clouds.all} %
+              </li>
+            </ul>
+          </div>
+        </section>
+      )}
+    </>
   );
 };
 

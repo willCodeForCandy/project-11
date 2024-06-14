@@ -17,11 +17,6 @@ export const apiRequest = async ({
       }&appid=${import.meta.env.VITE_OPEN_WEATHER_API_KEY}&units=metric&lang=es`
     );
   }
-  if (res.status !== 200) {
-    const errorMessage = 'Ciudad no encontrada';
-    console.log('Ciudad no encontrada');
-    return errorMessage;
-  }
   const data = await res.json();
   return data;
 };
