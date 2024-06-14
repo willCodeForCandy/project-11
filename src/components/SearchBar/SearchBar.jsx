@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import searchIcon from '/assets/search.png';
 import './SearchBar.css';
-import { apiRequest } from '../../utils/apiRequest';
+import { apiRequest } from '../../API/apiRequest';
 
 const SearchBar = ({ getWeather }) => {
   const [userInput, setUserInput] = useState('');
@@ -16,15 +16,16 @@ const SearchBar = ({ getWeather }) => {
         geolocation: true,
         cityName,
       });
-      if (typeof cityLocation === 'string') {
-        const errorMessage = cityLocation;
-        return errorMessage; //TODO Arreglar esta inmundicia
+      if (cityLocation.length > 0) {
+        const coords = {
+          lat: cityLocation[0].lat,
+          lon: cityLocation[0].lon,
+        };
+        setError(false);
+        return coords;
+      } else {
+        setError(true);
       }
-      const coords = {
-        lat: cityLocation[0].lat,
-        lon: cityLocation[0].lon,
-      };
-      return coords;
     } catch (error) {
       console.error(error);
     }
@@ -33,8 +34,9 @@ const SearchBar = ({ getWeather }) => {
   const handleSubmit = async (e, cityName) => {
     e.preventDefault();
     const coords = await getCoords(cityName);
-    const weatherReport = await getWeather(coords);
-    weatherReport ? setError(false) : setError(true);
+    if (coords) {
+      const weatherReport = await getWeather(coords);
+    }
   };
 
   return (

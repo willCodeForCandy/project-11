@@ -4,7 +4,7 @@ import './WeatherPage.css';
 import Aside from '../../components/Aside/Aside';
 import { updateWithoutDuplicates } from '../../utils/listUpdater';
 import loader from '/assets/loading.gif';
-import { apiRequest } from '../../utils/apiRequest';
+import { apiRequest } from '../../API/apiRequest';
 
 const WeatherPage = () => {
   const [savedLocations, setSavedLocations] = useState(
@@ -46,9 +46,7 @@ const WeatherPage = () => {
   const getWeather = async coords => {
     try {
       const weatherReport = await apiRequest({ coords });
-      if (typeof weatherReport === 'string') {
-        return;
-      } else {
+      if (weatherReport) {
         const updatedLocations = updateWithoutDuplicates(
           weatherReport,
           savedLocations
@@ -58,7 +56,6 @@ const WeatherPage = () => {
           'savedLocations',
           JSON.stringify(updatedLocations)
         );
-
         return weatherReport;
       }
     } catch (error) {
