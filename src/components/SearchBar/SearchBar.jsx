@@ -2,10 +2,12 @@ import { useState } from 'react';
 import searchIcon from '/assets/search.png';
 import './SearchBar.css';
 import { apiRequest } from '../../utils/apiRequest';
+import { useNavigate } from 'react-router-dom';
 
 const SearchBar = ({ getWeather }) => {
   const [userInput, setUserInput] = useState('');
   const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = e => {
     setUserInput(e.target.value);
@@ -36,6 +38,7 @@ const SearchBar = ({ getWeather }) => {
     const coords = await getCoords(cityName);
     if (coords) {
       const weatherReport = await getWeather(coords);
+      navigate(`/weather/${weatherReport.id}`);
     }
   };
 
