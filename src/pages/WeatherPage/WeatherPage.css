@@ -1,5 +1,4 @@
 #weather {
-  /* flex-grow: 1; */
   display: flex;
   gap: var(--spacing-m);
   align-items: stretch;
@@ -7,15 +6,4 @@
   @media screen and (max-width: 750px) {
     flex-direction: column;
   }
-}
-
-.loader {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.loader img {
-  width: 100%;
 }
