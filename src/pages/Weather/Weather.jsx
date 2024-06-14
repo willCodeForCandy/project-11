@@ -4,7 +4,6 @@ import './Weather.css';
 
 const Weather = ({ list }) => {
   const params = useParams();
-  console.log(list);
   const localWeather = list.find(location => location.local);
   const locationId = params.id || localWeather.id;
   const weather = list.find(location => location.id == locationId); // uso == porque params son strings

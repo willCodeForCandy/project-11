@@ -4,7 +4,7 @@ import './WeatherPage.css';
 import Aside from '../../components/Aside/Aside';
 import { updateWithoutDuplicates } from '../../utils/listUpdater';
 import loader from '/assets/loading.gif';
-import { apiRequest } from '../../API/apiRequest';
+import { apiRequest } from '../../utils/apiRequest';
 
 const WeatherPage = () => {
   const [savedLocations, setSavedLocations] = useState(

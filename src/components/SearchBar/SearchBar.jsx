@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import searchIcon from '/assets/search.png';
 import './SearchBar.css';
-import { apiRequest } from '../../API/apiRequest';
+import { apiRequest } from '../../utils/apiRequest';
 
 const SearchBar = ({ getWeather }) => {
   const [userInput, setUserInput] = useState('');
