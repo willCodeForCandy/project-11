@@ -24,3 +24,17 @@
 .saved-location h2 {
   font-size: var(--font-size-m);
 }
+
+.saved-location .location-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.saved-location .location-info .current-location > p {
+  display: none;
+}
+
+.saved-location .current-location {
+  margin-top: 0;
+}

@@ -1,13 +1,22 @@
 import { findWeatherIcon } from '../../utils/weatherIcons';
+import locationPin from '/assets/location-pin.svg';
 import './MainWeather.css';
 
 const MainWeather = ({ weather }) => {
   const currentWeatherIcon = findWeatherIcon(weather);
   return (
     <>
-      <h2 className="chubby-title">
-        {weather.name}, {weather.sys.country}
-      </h2>
+      <div className="location-info">
+        <h2 className="chubby-title">
+          {weather.name}, {weather.sys.country}
+        </h2>
+        {weather.local && (
+          <div className="current-location">
+            <img src={locationPin} /> <p>Ubicación actual</p>
+          </div>
+        )}
+      </div>
+
       <div className="main-weather">
         <div className="description">
           <p className="temp">{weather.main.temp.toFixed(0)}º</p>

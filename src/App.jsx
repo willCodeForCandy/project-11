@@ -1,7 +1,6 @@
-import { Link, NavLink, Outlet, Route, Routes } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import './App.css';
-import { useEffect, useState } from 'react';
-import Weather from './pages/Weather/Weather';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
@@ -12,7 +11,6 @@ const App = () => {
       <main>
         <Outlet />
       </main>
-
       <Footer />
     </>
   );
