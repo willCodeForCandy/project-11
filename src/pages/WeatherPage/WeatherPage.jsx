@@ -3,8 +3,8 @@ import Weather from '../Weather/Weather';
 import './WeatherPage.css';
 import Aside from '../../components/Aside/Aside';
 import { updateWithoutDuplicates } from '../../utils/listUpdater';
-import loader from '/assets/loading.gif';
 import { apiRequest } from '../../utils/apiRequest';
+import Loader from '../../components/Loader/Loader';
 
 const WeatherPage = () => {
   const [savedLocations, setSavedLocations] = useState(
@@ -70,13 +70,7 @@ const WeatherPage = () => {
   return (
     <div id="weather">
       <Aside getWeather={getWeather} listOfLocations={savedLocations} />
-      {savedLocations.length ? (
-        <Weather list={savedLocations} />
-      ) : (
-        <div className="loader">
-          <img src={loader} alt="Nubecita feliz con lluvia" />
-        </div>
-      )}
+      {savedLocations.length ? <Weather list={savedLocations} /> : <Loader />}
     </div>
   );
 };
