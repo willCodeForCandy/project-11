@@ -5,6 +5,9 @@
   padding: var(--spacing-xl);
 }
 #main-weather .main-weather {
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+  }
   @container (max-width: 420px) {
     flex-direction: column;
   }
@@ -17,6 +20,7 @@
 .weather-icon > img {
   width: 100%;
   max-width: 200px;
+  aspect-ratio: 1;
 }
 
 .main-weather .temp {

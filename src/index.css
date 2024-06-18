@@ -20,10 +20,6 @@
   --color-accent-5: hsl(138, 24%, 84%);
   --color-cloudy-day: #dddddd;
   --color-cloudy-night: #3a3a3a;
-  /* --color-accent-dark-1: hsl(209, 38%, 24%);
-  --color-accent-dark-2: hsl(44, 38%, 25%);
-  --color-accent-dark-3: hsl(24, 46%, 30%);
-  --color-accent-dark-4: hsl(333, 19%, 39%); */
 
   /* Spacings */
   --spacing-xl: 50px;
@@ -58,8 +54,9 @@ body {
   overflow: hidden;
   @media screen and (max-width: 750px) {
     min-height: 100svh;
+    overflow-y: auto;
+    overflow-x: hidden;
     height: auto;
-    overflow: auto;
   }
 }
 
@@ -78,6 +75,9 @@ a {
   font-size: var(--font-size-xl);
   color: var(--color-light);
   text-shadow: 2px 0px 7px #7a545487;
+  @media screen and (max-width: 450px) {
+    font-size: var(--font-size-l);
+  }
   @container (max-width: 420px) {
     font-size: var(--font-size-l);
   }
