@@ -2,7 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '/assets/logo.png';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ pages = [] }) => {
   return (
     <header className="stitched">
       <Link to="/" className="logo-wrapper">
@@ -11,12 +11,13 @@ const Header = () => {
 
       <nav>
         <ul>
-          <li>
-            <NavLink to="/weather">Clima</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">Info</NavLink>
-          </li>
+          {pages.map(page => {
+            return (
+              <li key={page.name}>
+                <NavLink to={page.endpoint}>{page.name}</NavLink>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </header>
