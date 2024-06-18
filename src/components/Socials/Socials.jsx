@@ -1,5 +1,5 @@
 import './Socials.css';
-const Socials = ({ socialsArray }) => {
+const Socials = ({ socialsArray = [] }) => {
   return (
     <>
       {socialsArray.map((social, index) => {
